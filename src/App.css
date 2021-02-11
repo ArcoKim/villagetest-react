@@ -1,38 +1,252 @@
-.App {
-  text-align: center;
+.title {
+	padding-top: 15px;
+	text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.flexTitle {
+	display: flex;
+	justify-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+	font-family: 'S-Core Dream 6';
+	font-size: 80px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.h1T {
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-right: 1.5%;
 }
 
-.App-link {
-  color: #61dafb;
+.yellowT {
+	color: yellow;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h2 {
+	font-family: 'S-Core Dream 5';
+	font-size: 45px;
+}
+
+.h2T {
+	margin-bottom: 25px;
+	margin-top: 0;
+}
+
+.greenT {
+	color: green;
+}
+
+#endT {
+	margin-right: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+button {
+	border: none;
+	cursor: pointer;
+}
+
+.start {
+	display: flex;
+	flex-direction: column;
+	width: 300px;
+	height: 100px;
+	background-color: blue;
+	align-items: center;
+	margin-bottom: 25px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.buttonWithI {
+	display: flex;
+	align-items: center;
+	width: 250px;
+	height: 80px;
+	background-color: blue;
+	margin: 0 auto;
+}
+
+.fa-poll-h, .fa-home {
+	color: skyblue;
+	font-size: 30px;
+}
+
+#endBtn {
+	display: none;
+}
+
+.start:hover, .end:hover {
+	background-color: navy;
+}
+
+.testm {
+	font-family: 'S-Core Dream 3';
+	color: white;
+	margin-top: 15px;
+	margin-bottom: 0;
+}
+
+.buttonTxt {
+	font-family: 'S-Core Dream 4';
+	font-size: 40px;
+	color: white;
+	margin: 0 auto;
+}
+
+.editer {
+	font-family: 'S-Core Dream 3';
+	color: black;
+	margin: 5px 10px;
+	margin-bottom: 0;
+}
+
+.enjoy {
+	margin-top: 0;
+	margin-bottom: 5px;
+}
+
+.preImg {
+	width: 200px;
+	height: 150px;
+	margin-right: 50px;
+}
+
+.charImg {
+	width: 100%;
+}
+
+.line1, .line2 {
+	display: flex;
+	justify-content: center;
+}
+
+ul {
+	list-style: none;
+	padding-left: 20px;
+}
+
+li {
+	display: flex;
+}
+
+.questionDiv {
+	display: flex;
+	width: 60%;
+	margin: 0 auto;
+	align-items: center;
+}
+
+.answer {
+	font-family: 'S-Core Dream 4';
+	font-size: 20px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+
+input[type=radio] {
+	width: 25px;
+	height: 25px;
+	border: 1px solid black;
+}
+
+.questions {
+	margin: 0 10px;
+}
+
+.question {
+	font-family: 'S-Core Dream 5';
+	font-size: 25px;
+	margin-bottom: 10px;
+}
+
+.fa-caret-left {
+	color: skyblue;
+}
+
+#qline2, #qline3 {
+	display: none;
+}
+
+#pgNum {
+	text-align: center;
+	font-family: 'S-Core Dream 3';
+}
+
+.goBtn {
+	background-color: skyblue;
+	outline: none;
+}
+
+.re {
+	color: black;
+	text-align: center;
+	margin-top: 0;
+}
+
+.reImgDiv {
+	text-align: center;
+}
+
+#reImg {
+	width: 320px;
+	height: 240px;
+}
+
+#reName {
+	color: blue;
+	text-align: center;
+	margin: 0;
+}
+
+#dscrpt {
+	width: 70%;
+	font-family: 'S-Core Dream 3';
+	font-size: 25px;
+	margin: 0 auto;
+	margin-top: 0;
+}
+
+.fa-caret-left, .fa-caret-right {
+	font-size: 50px;
+}
+
+.rsltBtn {
+	display: flex;
+	margin-top: 25px;
+	align-items: center;
+	justify-content: center;
+}
+
+.nmg {
+	margin: 0;
+	margin-right: 10px;
+}
+
+#reScore {
+	color: black;
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+#ad-banner {
+	width: 728px;
+	margin: 0 auto;
+}
+
+.editerDiv {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.help {
+	font-family: 'S-Core Dream 3';
+	color: red;
+	margin-top: 5px;
 }

@@ -8,16 +8,22 @@ import {
 import Title from "./components/Title";
 import Footer from "./components/Footer";
 import Prepare from "./components/Prepare";
+import Testpo from './components/Testpo';
+import Testpt from "./components/Testpt"
 
 class App extends Component {
   render() {
     return (
       <Router>
         <Title></Title>
-          <Switch>
-            <Route path="/test">
-            </Route>
+          <Switch> 
             <Route path="/result">
+            </Route>
+            <Route path="/test/2">
+              <Testpt></Testpt>
+            </Route>
+            <Route path={["/test", "/test/1"]}>
+              <Testpo></Testpo>
             </Route>
             <Route path="/">
               <Prepare></Prepare>

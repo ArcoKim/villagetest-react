@@ -71,15 +71,6 @@ button {
 	margin: 0 auto;
 }
 
-.fa-poll-h, .fa-home {
-	color: skyblue;
-	font-size: 30px;
-}
-
-#endBtn {
-	display: none;
-}
-
 .start:hover, .end:hover {
 	background-color: navy;
 }
@@ -154,25 +145,13 @@ input[type=radio] {
 	border: 1px solid black;
 }
 
-.questions {
-	margin: 0 10px;
-}
-
 .question {
 	font-family: 'S-Core Dream 5';
 	font-size: 25px;
 	margin-bottom: 10px;
 }
 
-.fa-caret-left {
-	color: skyblue;
-}
-
-#qline2, #qline3 {
-	display: none;
-}
-
-#pgNum {
+.pgNum {
 	text-align: center;
 	font-family: 'S-Core Dream 3';
 }
@@ -209,10 +188,6 @@ input[type=radio] {
 	font-size: 25px;
 	margin: 0 auto;
 	margin-top: 0;
-}
-
-.fa-caret-left, .fa-caret-right {
-	font-size: 50px;
 }
 
 .rsltBtn {

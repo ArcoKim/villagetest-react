@@ -6,7 +6,7 @@ import {
 class Prepare extends Component {
 	render() {
 		return (
-			<div>
+			<div className="prepare">
 				<Link to='/test/1'>
 					<button className="start">
 						<p className="testm">테스트를</p>

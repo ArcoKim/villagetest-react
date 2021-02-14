@@ -37,7 +37,7 @@ h2 {
 	color: green;
 }
 
-#endT {
+.endT {
 	margin-right: 0;
 }
 
@@ -161,6 +161,10 @@ input[type=radio] {
 	outline: none;
 }
 
+.inBtn {
+	color: skyblue;
+}
+
 .re {
 	color: black;
 	text-align: center;
@@ -171,19 +175,19 @@ input[type=radio] {
 	text-align: center;
 }
 
-#reImg {
+.reImg {
 	width: 320px;
 	height: 240px;
 }
 
-#reName {
+.reName {
 	color: blue;
 	text-align: center;
 	margin: 0;
 }
 
-#dscrpt {
-	width: 70%;
+.dscrpt {
+	width: 60%;
 	font-family: 'S-Core Dream 3';
 	font-size: 25px;
 	margin: 0 auto;
@@ -202,7 +206,7 @@ input[type=radio] {
 	margin-right: 10px;
 }
 
-#reScore {
+.reScore {
 	color: black;
 	text-align: center;
 	margin-top: 0;

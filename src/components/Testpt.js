@@ -25,7 +25,7 @@ class Testpt extends Component {
 				<div className="endBtn">
 					<Link to="/result">
 						<button className="buttonWithI">
-							<FontAwesomeIcon icon={ faPollH } size="3x" style={{color:'skyblue'}} />
+							<FontAwesomeIcon icon={ faPollH } size="3x" className="inBtn" />
 							<p className="buttonTxt">결과 확인</p>
 						</button>
 					</Link>

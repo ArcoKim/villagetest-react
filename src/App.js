@@ -9,7 +9,8 @@ import Title from "./components/Title";
 import Footer from "./components/Footer";
 import Prepare from "./components/Prepare";
 import Testpo from './components/Testpo';
-import Testpt from "./components/Testpt"
+import Testpt from "./components/Testpt";
+import Result from "./components/Result"
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
         <Title></Title>
           <Switch> 
             <Route path="/result">
+              <Result></Result>
             </Route>
             <Route path="/test/2">
               <Testpt></Testpt>

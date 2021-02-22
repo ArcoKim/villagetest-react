@@ -7,10 +7,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretLeft, faPollH } from '@fortawesome/free-solid-svg-icons';
 
 class Testpt extends Component {
+	constructor() {
+		super();
+		this.state = {
+			rVal: []
+		};
+		this.arrChange = this.arrChange.bind(this);
+	}
+
+	arrChange(arr) {
+		this.setState({
+			rVal: arr
+		});
+	}
+
 	render() {
 		var elements = [];
     for(var i = 7; i <= 12; i++){
-        elements.push(<Qaa id={i} key={i}></Qaa>);
+			elements.push(<Qaa id={i} key={i} arr={this.state.rVal} arrChange={this.arrChange}></Qaa>);
     }
 		return (
 			<div className="qAnd">

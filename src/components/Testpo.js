@@ -7,10 +7,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
 class Testpo extends Component {
+	constructor() {
+		super();
+		this.state = {
+			rVal: []
+		};
+		this.arrChange = this.arrChange.bind(this);
+	}
+
+	arrChange(arr) {
+		this.setState({
+			rVal: arr
+		});
+	}
+
 	render() {
 		var elements = [];
     for(var i = 1; i <= 6; i++){
-        elements.push(<Qaa id={i} key={i}></Qaa>);
+			elements.push(<Qaa id={i} key={i} arr={this.state.rVal} arrChange={this.arrChange}></Qaa>);
     }
 		return (
 			<div className="qAnd">

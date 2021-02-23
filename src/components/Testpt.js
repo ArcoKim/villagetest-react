@@ -13,12 +13,29 @@ class Testpt extends Component {
 			rVal: []
 		};
 		this.arrChange = this.arrChange.bind(this);
+		this.nextFunc = this.nextFunc.bind(this);
 	}
 
 	arrChange(arr) {
 		this.setState({
 			rVal: arr
 		});
+	}
+
+	nextFunc(e) {
+		if(!sessionStorage.getItem('test1')) {
+			e.preventDefault();
+			alert('1 ~ 6번 문제에 먼저 답해주십시요.');
+			return;
+		}
+		for(var i = 0; i < 6; i++) {
+			if(!this.state.rVal[i]) {
+				e.preventDefault();
+				alert(`모든 문항에 응답해주세요. (${i + 7}번)`);
+				return;
+			} 
+		}
+		sessionStorage.setItem('test2', JSON.stringify(this.state.rVal));
 	}
 
 	render() {
@@ -37,7 +54,7 @@ class Testpt extends Component {
 					</div>
 				</div>
 				<div className="endBtn">
-					<Link to="/result">
+					<Link to="/result" onClick={this.nextFunc}>
 						<button className="buttonWithI">
 							<FontAwesomeIcon icon={ faPollH } size="4x" className="inBtn" />
 							<p className="buttonTxt">결과 확인</p>

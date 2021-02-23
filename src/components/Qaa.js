@@ -8,7 +8,11 @@ class Qaa extends Component {
 
 	handleChange(e) {
 		var arrCpy = this.props.arr.concat();
-		arrCpy[this.props.id - 1] = e.target.value;
+		if(this.props.id >= 7) {
+			arrCpy[this.props.id - 7] = e.target.value;
+		} else {
+			arrCpy[this.props.id - 1] = e.target.value;
+		}
 		this.props.arrChange(arrCpy);
 	}
 

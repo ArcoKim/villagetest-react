@@ -6,6 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 class Result extends Component {
+	storageClear() {
+		sessionStorage.removeItem('test1');
+		sessionStorage.removeItem('test2');
+	}
+
 	render() {
 		return (
 			<div className="result">
@@ -18,7 +23,7 @@ class Result extends Component {
 				<h2 className="reScore">점수 : 10/10</h2>
 				<p className="dscrpt">다오는 격정과 정의감이 넘치는 열혈 라이더입니다. 긍정적인 마인드를 가지고 있고, 정의로운 성격으로 인해 레이싱 중 다른 라이더를 공격하거나, 비정상적인 방법으로 승리를 쟁취하는 것을 꺼려합니다.</p>
 				<div className="rsltBtn">
-					<Link to="/">
+					<Link to="/" onClick={this.storageClear}>
 						<button className="buttonWithI nmg">
 							<FontAwesomeIcon icon={ faHome } size="4x" className="inBtn" />
 							<p className="buttonTxt">처음으로</p>

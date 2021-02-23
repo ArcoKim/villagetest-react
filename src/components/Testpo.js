@@ -13,12 +13,24 @@ class Testpo extends Component {
 			rVal: []
 		};
 		this.arrChange = this.arrChange.bind(this);
+		this.nextFunc = this.nextFunc.bind(this);
 	}
 
 	arrChange(arr) {
 		this.setState({
 			rVal: arr
 		});
+	}
+
+	nextFunc(e) {
+		for(var i = 0; i < 6; i++) {
+			if(!this.state.rVal[i]) {
+				e.preventDefault();
+				alert(`모든 문항에 응답해주세요. (${i + 1}번)`);
+				break;
+			} 
+		}
+		sessionStorage.setItem('test1', JSON.stringify(this.state.rVal));
 	}
 
 	render() {
@@ -32,7 +44,7 @@ class Testpo extends Component {
 					<div className="questions" style={{margin:'0 10px 0 40px'}}>
 						{elements}
 					</div>
-					<Link to="/test/2">
+					<Link to="/test/2" onClick={this.nextFunc}>
 						<button className="goBtn"><FontAwesomeIcon icon={ faCaretRight } size="4x" /></button>
 					</Link>
 				</div>

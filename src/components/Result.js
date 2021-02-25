@@ -12,6 +12,12 @@ class Result extends Component {
 	}
 
 	render() {
+		if(!sessionStorage.getItem('test1') || !sessionStorage.getItem('test2')) {
+			alert('잘못된 접근입니다.');
+		}
+		var character = ["dA", "dS", "mA", "bA", "kE", "mO", "uN", "eT"];
+    var name = ["다오", "디지니", "마리드", "배찌", "케피", "모스", "우니", "에띠"];
+		var score = JSON.parse(sessionStorage.getItem('test1')).concat(JSON.parse(sessionStorage.getItem('test2')));
 		return (
 			<div className="result">
 				{/* on NEXON DEVELOPERS */}

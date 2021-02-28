@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Link
+  Link, Redirect
 } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
@@ -11,13 +11,17 @@ class Result extends Component {
 		sessionStorage.removeItem('test2');
 	}
 
+	scoreGo() {
+		var score = JSON.parse(sessionStorage.getItem('test1')).concat(JSON.parse(sessionStorage.getItem('test2')));
+		console.log(score);
+	}
+
 	render() {
 		if(!sessionStorage.getItem('test1') || !sessionStorage.getItem('test2')) {
 			alert('잘못된 접근입니다.');
+			return <Redirect to='/'></Redirect>
 		}
-		var character = ["dA", "dS", "mA", "bA", "kE", "mO", "uN", "eT"];
-    var name = ["다오", "디지니", "마리드", "배찌", "케피", "모스", "우니", "에띠"];
-		var score = JSON.parse(sessionStorage.getItem('test1')).concat(JSON.parse(sessionStorage.getItem('test2')));
+		this.scoreGo();
 		return (
 			<div className="result">
 				{/* on NEXON DEVELOPERS */}
@@ -35,6 +39,7 @@ class Result extends Component {
 							<p className="buttonTxt">처음으로</p>
 						</button>
 					</Link>
+					<div className="addthis_inline_share_toolbox"></div>
 				</div>
 			</div>
 		);

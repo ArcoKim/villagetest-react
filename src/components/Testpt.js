@@ -7,8 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretLeft, faPollH } from '@fortawesome/free-solid-svg-icons';
 
 class Testpt extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			rVal: []
 		};

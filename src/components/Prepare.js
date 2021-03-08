@@ -7,7 +7,7 @@ class Prepare extends Component {
 	render() {
 		return (
 			<div className="prepare">
-				<Link to='/test/1'>
+				<Link to={'/1/' + btoa('[]')}>
 					<button className="start">
 						<p className="testm">테스트를</p>
 						<p className="buttonTxt">시작하기</p>

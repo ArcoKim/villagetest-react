@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 import {
-  Link, Redirect
+  Link,
+	withRouter
 } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { description } from './variables'; 
 
 class Result extends Component {
-	storageClear() {
-		sessionStorage.removeItem('test1');
-		sessionStorage.removeItem('test2');
-	}
-
 	scoreGo(character) {
-		var score = JSON.parse(sessionStorage.getItem('test1')).concat(JSON.parse(sessionStorage.getItem('test2')));
+		var score = JSON.parse(atob(this.props.match.params.list));
     var test = ["1 4", "6 8", "5 -7", "2 -4", "3 -1", "2 7", "6 -8", "4 -5", "1 -3", "7 -8", "2 5", "3 -6"];
     var importantQ = [4, 3, 8, 7, 10, 11, 5, 9];
     var result = {"dA":0, "dS":0, "mA":0, "bA":0, "kE":0, "mO":0, "uN":0, "eT":0};
@@ -113,10 +109,6 @@ class Result extends Component {
 	}
 
 	render() {
-		if(!sessionStorage.getItem('test1') || !sessionStorage.getItem('test2')) {
-			alert('잘못된 접근입니다.');
-			return <Redirect to='/'></Redirect>
-		}
 		var character = ["dA", "dS", "mA", "bA", "kE", "mO", "uN", "eT"];
 		var name = ["다오", "디지니", "마리드", "배찌", "케피", "모스", "우니", "에띠"];
 		var color = ['blue', 'yellow', 'deeppink', 'red', 'purple', 'orange', 'dodgerblue', 'green'];
@@ -132,7 +124,7 @@ class Result extends Component {
 				<h2 className="reScore">점수 : {rsltHtml[1]}/11</h2>
 				<p className="dscrpt" style={{color:color[rsltHtml[2]]}}>{description[rsltHtml[2]]}</p>
 				<div className="rsltBtn">
-					<Link to="/" onClick={this.storageClear}>
+					<Link to="/">
 						<button className="buttonWithI nmg">
 							<FontAwesomeIcon icon={ faHome } size="4x" className="inBtn" />
 							<p className="buttonTxt">처음으로</p>
@@ -145,4 +137,4 @@ class Result extends Component {
 	}
 }
 
-export default Result;
+export default withRouter(Result);

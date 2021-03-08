@@ -17,20 +17,20 @@ class App extends Component {
     return (
       <Router>
         <Title></Title>
-          <Switch> 
-            <Route path="/result">
-              <Result></Result>
-            </Route>
-            <Route path="/test/2">
-              <Testpt></Testpt>
-            </Route>
-            <Route path={["/test", "/test/1"]}>
-              <Testpo></Testpo>
-            </Route>
-            <Route path="/">
-              <Prepare></Prepare>
-            </Route>
-          </Switch>
+        <Switch> 
+          <Route path="/result/:list">
+            <Result></Result>
+          </Route>
+          <Route path="/2/:list">
+            <Testpt></Testpt>
+          </Route>
+          <Route path="/1/:list">
+            <Testpo></Testpo>
+          </Route>
+          <Route path="/">
+            <Prepare></Prepare>
+          </Route>
+        </Switch>
         <Footer></Footer>
       </Router>
     );

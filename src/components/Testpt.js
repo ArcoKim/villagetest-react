@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
-  Link
+  Link,
+	withRouter
 } from "react-router-dom";
 import Qaa from "./Qaa";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,7 +11,7 @@ class Testpt extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			rVal: []
+			rVal: JSON.parse(atob(this.props.match.params.list))
 		};
 		this.arrChange = this.arrChange.bind(this);
 		this.nextFunc = this.nextFunc.bind(this);
@@ -23,30 +24,28 @@ class Testpt extends Component {
 	}
 
 	nextFunc(e) {
-		if(!sessionStorage.getItem('test1')) {
-			e.preventDefault();
-			alert('1 ~ 6번 문제에 먼저 답해주십시요.');
-			return;
-		}
-		for(var i = 0; i < 6; i++) {
+		for(var i = 6; i < 12; i++) {
 			if(!this.state.rVal[i]) {
 				e.preventDefault();
-				alert(`모든 문항에 응답해주세요. (${i + 7}번)`);
+				alert(`모든 문항에 응답해주세요. (${i + 1}번)`);
 				return;
 			} 
 		}
-		sessionStorage.setItem('test2', JSON.stringify(this.state.rVal));
 	}
 
 	render() {
 		var elements = [];
     for(var i = 7; i <= 12; i++){
-			elements.push(<Qaa id={i} key={i} arr={this.state.rVal} arrChange={this.arrChange}></Qaa>);
+			if(this.state.rVal[i-1]) {
+				elements.push(<Qaa id={i} key={i} arr={this.state.rVal} arrChange={this.arrChange} checked={this.state.rVal[i-1]}></Qaa>);
+			} else {
+				elements.push(<Qaa id={i} key={i} arr={this.state.rVal} arrChange={this.arrChange} checked={false}></Qaa>);
+			}
     }
 		return (
 			<div className="qAnd">
 				<div className="questionDiv">
-					<Link to="/test/1">
+					<Link to={"/1/" + btoa(JSON.stringify(this.state.rVal))}>
 						<button className="goBtn"><FontAwesomeIcon icon={ faCaretLeft } size="4x" /></button>
 					</Link>
 					<div className="questions" style={{margin:'0 40px 0 10px'}}>
@@ -54,7 +53,7 @@ class Testpt extends Component {
 					</div>
 				</div>
 				<div className="endBtn">
-					<Link to="/result" onClick={this.nextFunc}>
+					<Link to={"/result/" + btoa(JSON.stringify(this.state.rVal))} onClick={this.nextFunc}>
 						<button className="buttonWithI">
 							<FontAwesomeIcon icon={ faPollH } size="4x" className="inBtn" />
 							<p className="buttonTxt">결과 확인</p>
@@ -67,4 +66,4 @@ class Testpt extends Component {
 	}
 }
 
-export default Testpt;
+export default withRouter(Testpt);

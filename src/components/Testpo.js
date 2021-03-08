@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
-  Link
+  Link,
+	withRouter
 } from "react-router-dom";
 import Qaa from "./Qaa";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,7 +11,7 @@ class Testpo extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			rVal: []
+			rVal: JSON.parse(atob(this.props.match.params.list))
 		};
 		this.arrChange = this.arrChange.bind(this);
 		this.nextFunc = this.nextFunc.bind(this);
@@ -30,13 +31,16 @@ class Testpo extends Component {
 				break;
 			} 
 		}
-		sessionStorage.setItem('test1', JSON.stringify(this.state.rVal));
 	}
 
 	render() {
 		var elements = [];
     for(var i = 1; i <= 6; i++){
-			elements.push(<Qaa id={i} key={i} arr={this.state.rVal} arrChange={this.arrChange}></Qaa>);
+			if(this.state.rVal[i-1]) {
+				elements.push(<Qaa id={i} key={i} arr={this.state.rVal} arrChange={this.arrChange} checked={this.state.rVal[i-1]}></Qaa>);
+			} else {
+				elements.push(<Qaa id={i} key={i} arr={this.state.rVal} arrChange={this.arrChange} checked={false}></Qaa>);
+			}
     }
 		return (
 			<div className="qAnd">
@@ -44,7 +48,7 @@ class Testpo extends Component {
 					<div className="questions" style={{margin:'0 10px 0 40px'}}>
 						{elements}
 					</div>
-					<Link to="/test/2" onClick={this.nextFunc}>
+					<Link to={"/2/" + btoa(JSON.stringify(this.state.rVal))} onClick={this.nextFunc}>
 						<button className="goBtn"><FontAwesomeIcon icon={ faCaretRight } size="4x" /></button>
 					</Link>
 				</div>
@@ -54,4 +58,4 @@ class Testpo extends Component {
 	}
 }
 
-export default Testpo;
+export default withRouter(Testpo);
